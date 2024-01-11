@@ -1,22 +1,39 @@
+// Se define letiable que se convierte en un array vacio para almacenar las tareas
+let tareas = [];
 
-// Se define variable que se convierte en un array vacio para almacenar las tareas
-let tarea = [];
+// Función para agregar una tarea al array
+function agregarTareas() {
+  let tareaTexto = prompt('Ingrese una nueva tarea:');
 
-// Función para agregar una tarea
-function agregarTarea() {
-  let tareaText = prompt('Ingrese una nueva tarea:');
-
-  if (tareaText !== null) {
-    tarea.push(tareaText);
-    alert('Tarea agregada: ' + tareaText);
+  if (tareaTexto !== null) {
+    tareas.push(tareaTexto);
+    alert('Tarea agregada: ' + tareaTexto);
   } else {
-    alert('Por favor, ingrese una tarea válida.');
+    alert('Operación cancelada. No se agregó ninguna tarea.');
+  }
+
+  // Preguntar al usuario si quiere agregar otra tarea
+  let agregarOtro = confirm('¿Desea agregar otra tarea?');
+  
+  if (agregarOtro) {
+    agregarTareas(); // Llamada recursiva para agregar otra tarea
+  } else {
+    alert('Lista de tareas finalizada.');
+    mostrarTareas(); // Mostrar la lista de tareas al final
+  }
+}
+
+// Función para mostrar la lista de tareas
+function mostrarTareas() {
+  if (tareas.length === 0) {
+    alert('No hay tareas en la lista.');
+  } else {
+    alert('Lista de tareas:\n' + tareas.join('\n'));
   }
 }
 
 // Llamada a la función para agregar tarea
-agregarTarea();
+agregarTareas();
 
-
-// Mostrar resultado de la interaccion
-console.log(tarea)
+// Mostrar resultado de la interaccion en el array
+console.log(tareas)
