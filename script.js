@@ -1,39 +1,41 @@
-// Se define letiable que se convierte en un array vacio para almacenar las tareas
-let tareas = [];
+// Se define variable que se convierte en un array vacio para almacenar las tareas
+const tareas = [];
 
-// Función para agregar una tarea al array
-function agregarTareas() {
-  let tareaTexto = prompt('Ingrese una nueva tarea:');
 
-  if (tareaTexto !== null) {
-    tareas.push(tareaTexto);
-    alert('Tarea agregada: ' + tareaTexto);
+// Función para agregar una tarea al array utilizando metodo push
+function agregarTareas(tarea) {
+  if (tarea !== null ) {
+    tareas.push(tarea);
+    alert('Tarea agregada: ' + tarea);
   } else {
-    alert('Operación cancelada. No se agregó ninguna tarea.');
+    alert('Por favor, ingrese una tarea válida.');
   }
+}
 
-  // Preguntar al usuario si quiere agregar otra tarea
-  let agregarOtro = confirm('¿Desea agregar otra tarea?');
-  
-  if (agregarOtro) {
-    agregarTareas(); // Llamada recursiva para agregar otra tarea
-  } else {
+
+
+// Ciclo while para permitir al usuario agregar tareas
+while (true) {
+  let userInput = prompt('Ingrese una nueva tarea (o escriba "fin" para terminar):');
+ 
+  if (userInput === 'fin') {
     alert('Lista de tareas finalizada.');
-    mostrarTareas(); // Mostrar la lista de tareas al final
+    break; // Salir del bucle al escribir "fin"
   }
+
+  agregarTareas(userInput);
 }
 
-// Función para mostrar la lista de tareas
-function mostrarTareas() {
-  if (tareas.length === 0) {
-    alert('No hay tareas en la lista.');
-  } else {
-    alert('Lista de tareas:\n' + tareas.join('\n'));
-  }
-}
 
-// Llamada a la función para agregar tarea
-agregarTareas();
+
+
+// Ciclo for para mostrar la lista de tareas
+
+for (let i = 0; i < tareas.length; i++) {
+ alert('Lista de tareas agregadas:\n' + tareas.join('\n'));
+}
+alert('Lista de tareas agregadas:');
+
 
 // Mostrar resultado de la interaccion en el array
-console.log(tareas)
+console.log(tareas) 
