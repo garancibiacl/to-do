@@ -40,9 +40,5 @@ let listaTareas = 'Lista de tareas:\n';
 
 
 
-
-//alert('Lista de tareas agregadas:');
-
-
-// Mostrar resultado de la interaccion en el array
+// Mostrar resultado de la interaccion en el array  que contiene la lista de tareas
 console.log(tareas) 
