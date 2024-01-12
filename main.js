@@ -29,12 +29,19 @@ while (true) {
 
 
 
-// Ciclo for para mostrar la lista de tareas
+// Ciclo for para mostrar a través del array una cadena que contiene la lista de tareas
+let listaTareas = 'Lista de tareas:\n';
 
-for (let i = 0; i < tareas.length; i++) {
- alert('Lista de tareas agregadas:\n' + tareas.join('\n'));
-}
-alert('Lista de tareas agregadas:');
+  for (let i = 0; i < tareas.length; i++) {
+    listaTareas += (i + 1) + '. ' + tareas[i] + '\n';
+  }
+
+  alert(listaTareas);
+
+
+
+
+//alert('Lista de tareas agregadas:');
 
 
 // Mostrar resultado de la interaccion en el array
