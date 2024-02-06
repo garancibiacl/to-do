@@ -1,44 +1,45 @@
-// Se define variable que se convierte en un array vacio para almacenar las tareas
-const tareas = [];
+document.addEventListener('DOMContentLoaded', function () {
+  // Obtener elementos del DOM
+  let taskInput = document.getElementById('taskInput');
+  let agregarTareasBtn = document.getElementById('agregarTareasBtn');
+  let listaTareas = document.getElementById('listaTareas');
 
+  // Obtener tareas del LocalStorage o inicializar un array vacío
+  let tareas = JSON.parse(localStorage.getItem('tareas')) || [];
 
-// Función para agregar una tarea al array utilizando metodo push
-function agregarTareas(tarea) {
-  if (tarea !== null ) {
-    tareas.push(tarea);
-    alert('Tarea agregada: ' + tarea);
-  } else {
-    alert('Por favor, ingrese una tarea válida.');
-  }
-}
-
-
-
-// Ciclo while para permitir al usuario agregar tareas
-while (true) {
-  let userInput = prompt('Ingrese una nueva tarea (o escriba "fin" para terminar):');
- 
-  if (userInput === 'fin') {
-    alert('Lista de tareas finalizada.');
-    break; // Salir del bucle al escribir "fin"
+  // Función para renderizar la lista de tareas
+  function renderTasks() {
+    listaTareas.innerHTML = '';
+    tareas.forEach(function (tarea, index) {
+      let li = document.createElement('li');
+      li.innerHTML = `
+        <span>${tarea}</span>
+        <button class="btn btn-danger" onclick="deleteTask(${index})"> <i class="fas fa-trash"></i>  Eliminar</button>
+      `;
+      listaTareas.appendChild(li);
+    });
+    localStorage.setItem('tareas', JSON.stringify(tareas));
   }
 
-  agregarTareas(userInput);
-}
-
-
-
-
-// Ciclo for para mostrar a través del array una cadena que contiene la lista de tareas
-let listaTareas = 'Lista de tareas:\n';
-
-  for (let i = 0; i < tareas.length; i++) {
-    listaTareas += (i + 1) + '. ' + tareas[i] + '\n';
+  // Función para agregar una nueva tarea
+  function agregarTareas() {
+    let taskText = taskInput.value.trim();
+    if (taskText !== '') {
+      tareas.push(taskText);
+      renderTasks();
+      taskInput.value = '';
+    }
   }
 
-  alert(listaTareas);
+  // Función para eliminar una tarea
+  window.deleteTask = function (index) {
+    tareas.splice(index, 1);
+    renderTasks();
+  };
 
+  // Evento click para agregar tarea
+  agregarTareasBtn.addEventListener('click', agregarTareas);
 
-
-// Mostrar resultado de la interaccion en el array  que contiene la lista de tareas
-console.log(tareas) 
+  // Renderizar tareas al cargar la página
+  renderTasks();
+});
