@@ -13,8 +13,8 @@ document.addEventListener('DOMContentLoaded', function () {
     tareas.forEach(function (tarea, index) {
       let li = document.createElement('li');
       li.innerHTML = `
-        <span>${tarea}</span>
-        <button class="btn btn-danger" onclick="deleteTask(${index})"> <i class="fas fa-trash"></i>  Eliminar</button>
+        <h3 class="col-auto " >${tarea}</h3>
+        <button class="btn btn-danger mx-5 mb-4" onclick="deleteTask(${index})"> <i class="fas fa-trash"></i>  Eliminar</button>
       `;
       listaTareas.appendChild(li);
     });
