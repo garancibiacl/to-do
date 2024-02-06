@@ -9,6 +9,7 @@ Acerca de esta app. To-Do List es un planificador de tareas y una aplicación de
 
 # ✅ Pre-Entrega:
   1era Entrega : Estructura HTML y CSS del proyecto. Emplear estructuras JS necesarias. Semana #4
+  
   2da Entrega :  Dom, eventos y local storage. Semana #7
 
 
