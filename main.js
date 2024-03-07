@@ -79,11 +79,14 @@ function guardarTareas(tareaPorCategoria) {
         renderTareas(category);
         tareaInput.value = '';
       }else {
-          alert('Por favor, ingrese una tarea válida.');
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Por favor, ingrese una tarea válida.",
+        });
       }
     }
 
-   
 
     window.deleteTask = function (category, index) {
       tareaPorCategoria[category].splice(index, 1);
