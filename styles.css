@@ -1,68 +1,87 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
-
-* {
-  box-sizing: border-box;
-}
-
 body {
-  background: #f8f8f8;
-  color: #444;
-  font-family: 'Poppins', sans-serif;
+  font-family: Arial, sans-serif;
+  background: #7F00FF;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #E100FF, #7F00FF);  
+background: linear-gradient(to right, #E100FF, #7F00FF);
+  margin: 0;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  margin: 0;
+  min-height: 100vh;
 }
-  
-  #app {
-    max-width: 400px;
-    width: 100%;
-    text-align: center;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-  }
-  .add-todo-input,
-  .edit-todo-input {
-      outline: none;
-  }
-  
-  .add-todo-input:focus,
-  .edit-todo-input:focus {
-      border: none !important;
-      box-shadow: none !important;
-  }
-  
-  button {
-    padding: 8px;
-    cursor: pointer;
-  }
-  
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  li {
-    margin-bottom: 8px;
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .delete-btn {
-    background-color: #e74c3c;
-    color: #fff;
-    padding: 6px;
-    border: none;
-    cursor: pointer;
 
-  }
-    .bg_task{
-      padding: 15px;
-      margin: 5px 0;
-      border-radius: 0;
-      background: #f7f7f7;
-    }
-  
+#app {
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  background-color: #fff;
+  border-radius: 15px;
+}
+
+.input[type="text"] {
+  width: 70%;
+  padding: 8px;
+  box-sizing: border-box;
+  border-radius: 30px;
+box-sizing: border-box;
+padding: 10px 30px;
+}
+
+.button {
+  padding: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.delete-btn {
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.edit-btn {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.task-completed {
+  text-decoration: line-through;
+}
+
+.completed-text {
+  color: #27ae60;
+  padding-top: 23px;
+}
+
+.category{
+  background-color: #3498db;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.selected {
+  background-color: #2980b9;
+}
+

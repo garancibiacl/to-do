@@ -8,12 +8,15 @@
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <meta name="author" content="Gustavo Arancibia">
     <title>To-do</title>
+    <link rel="stylesheet" href="style.css" />
     
 </head>
+
+
 <body>
     <div id="app" class="container m-5 p-2 rounded mx-auto bg-light shadow">
-           <!-- App title section -->
     <div class="row m-1 p-4">
         <div class="col">
             <div class="p-1 h1 text-primary text-center mx-auto ">
@@ -22,29 +25,70 @@
         </div>
     </div>
 
-    <div class="row m-1 p-3">
+    <div class="row m-1 p-3 bg-white rounded shadow-sm p-2 add-todo-wrapper align-items-center justify-content-center">
         <div class="col-6 col-11 mx-auto">
-            <div class="row bg-white rounded shadow-sm p-2 add-todo-wrapper align-items-center justify-content-center">
-                <div class="col">
-        <input type="text" class="form-control form-control-lg border-0 add-todo-input bg-transparent rounded"  id="taskInput" placeholder="Ingrese una nueva tarea">
+         
+                <div class="col-12">
+        <input type="text" class="form-control form-control-lg rounded"  id="tareaInput"  placeholder="Ingrese una nueva tarea">
 
        
     </div>
+    <div class="row d-flex m-1 p-3 pt-3">
+        <div class="col-6 col-11 mx-auto ">
+      <select class="form-select" id="seleccionarCategoria">
+        <option value="personal">Personal</option>
+        <option value="trabajo">Trabajo</option>
+        <option value="estudio">Estudio</option>
+      </select>
+          </div>
+    
+        </div>
+    
+        <div class="col-auto  px-0 mx-0 mr-2">
+            <button id="agregarTareaBtn" type="button" class="btn btn-primary">   <i class="fas fa-plus"></i>   Agregar tarea</button>
+        </div>
+        
+     
+</div>
+</div>
 
-    <div class="col-auto  px-0 mx-0 mr-2">
-        <button id="agregarTareasBtn" type="button" class="btn btn-primary">   <i class="fas fa-plus"></i>   Agregar tarea</button>
-    </div>
-</div>
-</div>
-</div>
 
-<div class="row d-flex m-1 p-3">
-    <div class="col-6 col-11 mx-auto ">
-        <ul  id="listaTareas"></ul>
+
+
+
+<div class="row pb-4 ">
+
+    <div id="categoriaFiltros">
+        <span class=" category" data-category="all">Todas</span>
+        <span class=" category" data-category="personal">Personal</span>
+        <span class=" category" data-category="trabajo">Trabajo</span>
+        <span class=" category" data-category="estudio">Estudio</span>
       </div>
-
-    </div>
+  
 </div>
+
+
+<div class="row d-flex m-1 p-2">
+
+    <div class="col-12">
+<ul id="listaDeTareas"></ul>
+
+</div>
+
+</div>
+
+<hr class="bg-danger border-1 border-top border-secondary" />
+<div class="row m-1 p-2 ">
+    <div class="col-12">
+    <h5>⛅ Weather App</h5>
+    <div id="weather"></div>
+    
+    </div>
+    </div>
+
+</div>
+
+
 
     <script src="main.js"></script>
 </body>
