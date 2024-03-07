@@ -16,7 +16,9 @@ Acerca de esta app. To-Do List es un planificador de tareas y una aplicación de
 
 
 
-#
+## ⚡ Deploy
+
+Para visualizar el proyecto debe hacer click [Aquí](https://cheery-sunshine-0afe23.netlify.app/)
 
 
 ## ❓Dudas
