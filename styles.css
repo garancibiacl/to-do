@@ -79,9 +79,11 @@ li {
   border-radius: 4px;
   margin-top: 10px;
   cursor: pointer;
+  opacity: 0.8;
 }
 
 .selected {
-  background-color: #2980b9;
+  background-color: #0d6efd;
+  opacity: 0.9;
 }
 

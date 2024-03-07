@@ -55,22 +55,24 @@ function guardarTareas(tareaPorCategoria) {
           <input class="form-check-input" type="checkbox" id="task${index}" ${task.completed ? 'checked' : ''}>
           <label  for="task${index}" class="${task.completed ? 'task-completed' : ''}">${task.text}</label>
           <button class="badge text-bg-primary edit-btn"  onclick="editTask('${category}', ${index})"><i class="far fa-edit"></i></button>
-          <button class="badge text-bg-danger delete-btn "   onclick="deleteTask('${category}', ${index})"><i class="fas fa-trash" ></i></button>
+          <button class="badge text-bg-danger delete-btn "   onclick="eliminarTarea('${category}', ${index})"><i class="fas fa-trash" ></i></button>
         `;
         listaDeTareas.appendChild(li);
       });
 
-      let completedTasks = tareaPorCategoria[category].filter(function (task) {
+      let tareasCompletadas = tareaPorCategoria[category].filter(function (task) {
         return task.completed;
       }).length;
-      let totalTasks = tareaPorCategoria[category].length;
+      let totalTareas = tareaPorCategoria[category].length;
       let completedText = document.createElement('p');
-      completedText.textContent = `Tienes: (${completedTasks}) tareas completadas de (${totalTasks}) en total `;
+      completedText.textContent = `Tienes: (${tareasCompletadas}) tareas completadas de (${totalTareas}) en total `;
       completedText.classList.add('completed-text');
       listaDeTareas.appendChild(completedText);
     }
 
-    function addTask() {
+
+ 
+    function agregarTarea() {
       let taskText = tareaInput.value.trim();
       let category = seleccionarCategoria.value;
       if (taskText !== '') {
@@ -88,19 +90,48 @@ function guardarTareas(tareaPorCategoria) {
     }
 
 
-    window.deleteTask = function (category, index) {
+    window.eliminarTarea = function (category, index) {
       tareaPorCategoria[category].splice(index, 1);
       guardarTareas(tareaPorCategoria);
       renderTareas(category);
+   
+      Swal.fire({
+        position: "top-center",
+        icon: "success",
+        title: "La tareas es eliminada",
+        showConfirmButton: false,
+        timer: 1500
+      });
     };
 
+
+
     window.editTask = function (category, index) {
-      let newText = prompt('Ingrese la nueva descripción de la tarea');
-      if (newText !== null) {
-        tareaPorCategoria[category][index].text = newText;
-        guardarTareas(tareaPorCategoria);
-        renderTareas(category);
-      }
+   
+      Swal.fire({
+        title: 'Editar tarea',
+        input: 'text',
+        inputAttributes: {
+          autocapitalize: 'off'
+        },
+        showCancelButton: true,
+        confirmButtonText: 'Aceptar',
+        cancelButtonText: 'Cancelar',
+        showLoaderOnConfirm: true,
+        preConfirm: (newText) => {
+          if (newText !== null && newText.trim() !== "") {
+            tareaPorCategoria[category][index].text = newText;
+            guardarTareas(tareaPorCategoria);
+            renderTareas(category);
+          }else {
+            alert("Debes ingresar una tareas antes de continuar.");
+          }
+        },
+        allowOutsideClick: () => !Swal.isLoading()
+      })
+
+  
+      
     };
 
     function toggleTaskCompletion(event) {
@@ -111,7 +142,7 @@ function guardarTareas(tareaPorCategoria) {
       renderTareas(category);
     }
 
-    agregarTareaBtn.addEventListener('click', addTask);
+    agregarTareaBtn.addEventListener('click', agregarTarea);
     categoriaFiltros.addEventListener('click', function (event) {
       if (event.target.classList.contains('category')) {
         let category = event.target.getAttribute('data-category');
@@ -144,13 +175,13 @@ function guardarTareas(tareaPorCategoria) {
           let li = document.createElement('li');
           li.innerHTML = `
             <span>${task.text} (${category})</span>
-            <button class="badge text-bg-danger delete-btn" onclick="deleteTask('${category}', ${tareaPorCategoria[category].indexOf(task)})"><i class="fas fa-trash"></i></button>`;
+            <button class="badge text-bg-danger delete-btn" onclick="eliminarTarea('${category}', ${tareaPorCategoria[category].indexOf(task)})"><i class="fas fa-trash"></i></button>`;
           listaDeTareas.appendChild(li);
         });
       });
     }
 
-    agregarTareaBtn.addEventListener('click', addTask);
+    agregarTareaBtn.addEventListener('click', agregarTarea);
 
     categoriaFiltros.addEventListener('click', function (event) {
       if (event.target.classList.contains('category')) {
