@@ -8,9 +8,9 @@ fetch(apiUrl)
     const { main, description } = data.weather[0];
     const { temp, feels_like } = data.main;
     const cityName = data.name;
-    weatherElement.innerHTML = `<span class="badge text-bg-success">Ciudad: ${cityName}</span>
-                                <span class="badge text-bg-warning">Temperature: ${temp}°C</span>
-                               `;
+    weatherElement.innerHTML = 
+    `<span class="badge text-bg-success">Ciudad: ${cityName}</span>
+     <span class="badge text-bg-warning">Temperature: ${temp}°C</span>`;
 
                                 
   })
@@ -55,7 +55,7 @@ function guardarTareas(tareaPorCategoria) {
           <input class="form-check-input" type="checkbox" id="task${index}" ${task.completed ? 'checked' : ''}>
           <label  for="task${index}" class="${task.completed ? 'task-completed' : ''}">${task.text}</label>
           <button class="badge text-bg-primary edit-btn"  onclick="editTask('${category}', ${index})"><i class="far fa-edit"></i></button>
-          <button class="badge text-bg-danger delete-btn" onclick="deleteTask('${category}', ${index})"><i class="fas fa-trash"></i></button>
+          <button class="badge text-bg-danger delete-btn "   onclick="deleteTask('${category}', ${index})"><i class="fas fa-trash" ></i></button>
         `;
         listaDeTareas.appendChild(li);
       });
@@ -78,6 +78,8 @@ function guardarTareas(tareaPorCategoria) {
         guardarTareas(tareaPorCategoria);
         renderTareas(category);
         tareaInput.value = '';
+      }else {
+          alert('Por favor, ingrese una tarea válida.');
       }
     }
 
