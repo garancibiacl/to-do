@@ -50,13 +50,22 @@ function guardarTareas(tareaPorCategoria) {
     function renderTareas(category) {
       listaDeTareas.innerHTML = '';
       tareaPorCategoria[category].forEach(function (task, index) {
+        const div = document.createElement('div');
+        
         let li = document.createElement('li');
         li.innerHTML = `
+  
+
           <input class="form-check-input" type="checkbox" id="task${index}" ${task.completed ? 'checked' : ''}>
+          <div class="col-8 text-start contenedor-label">
           <label  for="task${index}" class="${task.completed ? 'task-completed' : ''}">${task.text}</label>
+          </div>
           <button class="badge text-bg-primary edit-btn"  onclick="editTask('${category}', ${index})"><i class="far fa-edit"></i></button>
           <button class="badge text-bg-danger delete-btn "   onclick="eliminarTarea('${category}', ${index})"><i class="fas fa-trash" ></i></button>
-        `;
+             
+     
+        `
+        ;
         listaDeTareas.appendChild(li);
       });
 

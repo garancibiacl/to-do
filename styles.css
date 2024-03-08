@@ -87,3 +87,7 @@ li {
   opacity: 0.9;
 }
 
+.contenedor-label{
+  width: 230px;
+    word-wrap: break-word;
+}
