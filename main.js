@@ -98,7 +98,7 @@ function guardarTareas(tareaPorCategoria) {
       Swal.fire({
         position: "top-center",
         icon: "success",
-        title: "La tareas es eliminada",
+        title: "La tarea es eliminada",
         showConfirmButton: false,
         timer: 1500
       });
@@ -124,14 +124,14 @@ function guardarTareas(tareaPorCategoria) {
             guardarTareas(tareaPorCategoria);
             renderTareas(category);
           }else {
-            alert("Debes ingresar una tareas antes de continuar.");
+            alert("Por favor, ingrese una tarea válida antes de continuar.");
           }
         },
         allowOutsideClick: () => !Swal.isLoading()
       })
 
   
-      
+    
     };
 
     function toggleTaskCompletion(event) {
