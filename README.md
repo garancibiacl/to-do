@@ -12,7 +12,7 @@ Acerca de esta app. To-Do List es un planificador de tareas y una aplicación de
   
   2da Entrega :  Dom, eventos y local storage. Semana #7
 
-  Proyecto Final
+  Proyecto Final. Semana #10
 
 
 

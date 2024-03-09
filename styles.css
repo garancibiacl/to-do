@@ -41,10 +41,14 @@ ul {
 }
 
 li {
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: white;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: var(--bs-box-shadow-sm)!important;
 }
 
 .delete-btn {
