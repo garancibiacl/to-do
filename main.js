@@ -191,7 +191,7 @@ function guardarTareas(tareaPorCategoria) {
           let li = document.createElement('li');
           li.innerHTML = `
             <span>${task.text} (${category})</span>
-            <button class="text-bg-danger delete-btn" onclick="eliminarTarea('${category}', ${tareaPorCategoria[category].indexOf(task)})"><i class="fas fa-trash"></i></button>`;
+            <button class="text-bg-danger delete-btn tooltip-container" onclick="eliminarTarea('${category}', ${tareaPorCategoria[category].indexOf(task)})"><i class="fas fa-trash"></i><span class="tooltip-text">Eliminar</button>`;
           listaDeTareas.appendChild(li);
         });
       });
