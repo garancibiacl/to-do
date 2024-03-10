@@ -14,7 +14,7 @@ background: linear-gradient(to right, #E100FF, #7F00FF);
   max-width: 400px;
   width: 100%;
   text-align: center;
-  padding: 20px;
+  padding: 10px;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
   background-color: #fff;
   border-radius: 15px;
@@ -45,10 +45,10 @@ li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: white;
+  background-color: #eee    ;
   padding: 15px;
   border-radius: 5px;
-  box-shadow: var(--bs-box-shadow-sm)!important;
+  /*box-shadow: var(--bs-box-shadow-sm)!important;*/
 }
 
 .delete-btn {
