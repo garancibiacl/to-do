@@ -21,11 +21,6 @@ fetch(apiUrl)
 
 
 
-
-
-
-
-
 function guardarTareas(tareaPorCategoria) {
     localStorage.setItem('tareaPorCategoria', JSON.stringify(tareaPorCategoria));
   }
@@ -38,6 +33,8 @@ function guardarTareas(tareaPorCategoria) {
     };
   }
 
+
+
   document.addEventListener('DOMContentLoaded', function () {
     const tareaInput = document.getElementById('tareaInput');
     const seleccionarCategoria = document.getElementById('seleccionarCategoria');
@@ -47,11 +44,19 @@ function guardarTareas(tareaPorCategoria) {
 
     let tareaPorCategoria = cargarTareas();
 
+
+
+
+
     function renderTareas(category) {
+
       listaDeTareas.innerHTML = '';
       tareaPorCategoria[category].forEach(function (task, index) {
-      
-        let li = document.createElement('li');
+    
+    
+      let li = document.createElement('li');
+        
+        
         li.innerHTML = `
   
 
@@ -59,13 +64,15 @@ function guardarTareas(tareaPorCategoria) {
           <div class="col-8 text-start contenedor-label">
           <label  for="task${index}" class="${task.completed ? 'task-completed' : ''}">${task.text}</label>
           </div>
-          <button class="text-bg-primary edit-btn"  onclick="editTask('${category}', ${index})"><i class="far fa-edit"></i></button>
-          <button class="text-bg-danger delete-btn "   onclick="eliminarTarea('${category}', ${index})"><i class="fas fa-trash" ></i></button>
+          <button class=" text-bg-primary edit-btn tooltip-container "  onclick="editTask('${category}', ${index})" ><i class="far fa-edit  "></i> <span class="tooltip-text">Editar</span></button>
+          <button class="text-bg-danger delete-btn tooltip-container "   onclick="eliminarTarea('${category}', ${index})"><i class="fas fa-trash" ></i><span class="tooltip-text">Eliminar</span></button>
   
      
         `
         ;
+        
         listaDeTareas.appendChild(li);
+        
       });
 
       let tareasCompletadas = tareaPorCategoria[category].filter(function (task) {

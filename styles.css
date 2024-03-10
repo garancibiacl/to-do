@@ -95,3 +95,29 @@ li {
   width: 230px;
     word-wrap: break-word;
 }
+
+.tooltip-container {
+  position: relative; /*relative: los elementos se posicionan de forma relativa a su posición normal.*/
+  display: inline-block;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  width: 100px;
+  background-color: #6e2cf3;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  top: 125%; /* Posiciona el tooltip bajo del elemento */
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.tooltip-container:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
