@@ -33,19 +33,11 @@
 
     </div>
 
-
-    <div class="row m-1 add-todo-wrapper align-items-center justify-content-center">
-        <div class="col-12 mx-auto">
-         
-                <div class="col-12">
-        <input type="text" class="bg-body-secondary form-control form-control-lg rounded"  id="tareaInput"  placeholder="Ingrese una nueva tarea">
-
-       
-    </div>
-    <div class="row d-flex m-1 p-3 pt-3">
-        <div class="col-6 col-11 mx-auto ">
+    <div class="row d-flex m-1 pb-3 pt-3">
+        <div class="col-6 ">
+            <label class="col-12 justify-content-md-start d-flex pb-2 fw-bold" >Seleccione Categoria</label>
       <select class="form-select" id="seleccionarCategoria">
-        <option selected>Seleccione Categoria</option>
+        <option selected>Categoria</option>
         <option value="personal">Personal</option>
         <option value="trabajo">Trabajo</option>
         <option value="estudio">Estudio</option>
@@ -53,10 +45,20 @@
           </div>
     
         </div>
-    
-        <div class="col-auto  px-0 mx-0 mr-2">
+    <div class="row m-1 add-todo-wrapper align-items-center justify-content-center">
+        <div class="col-12 mx-auto">
+           
+                <div class="input-group mb-3">
+                 
+        <input type="text" class="bg-body-secondary form-control form-control-lg rounded"  id="tareaInput"  placeholder="Ingrese una nueva tarea">
+
+  
             <button id="agregarTareaBtn" type="button" class="btn btn-primary">   <i class="fas fa-plus"></i>   Agregar tarea</button>
-        </div>
+
+    </div>
+
+    
+   
         
 
      
@@ -73,7 +75,7 @@
 
     <div id="categoriaFiltros">
         <span class=" category" data-category="all">Todas</span>
-        <span class=" category" data-category="personal">Personal</span>
+        <span class="  category " data-category="personal">Personal</span>
         <span class=" category" data-category="trabajo">Trabajo</span>
         <span class=" category" data-category="estudio">Estudio</span>
       </div>

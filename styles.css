@@ -11,7 +11,7 @@ background: linear-gradient(to right, #E100FF, #7F00FF);
 }
 
 #app {
-  max-width: 400px;
+  max-width: 600px;
   width: 100%;
   text-align: center;
   padding: 10px;
@@ -79,12 +79,37 @@ li {
 .category{
   background-color: #3498db;
   color: #fff;
-  padding: 4px 8px;
-  border-radius: 4px;
+  padding: 9px 9px;
+  border-radius: 30px;
   margin-top: 10px;
   cursor: pointer;
   opacity: 0.8;
+  font-size: 14px;
+  font-weight: 500;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
 }
+.category-personal{
+  background-color: #e3e0ff !important;
+  color: #7058ff !important;
+
+}
+
+.category-trabajo{
+  background-color: #d3e4fe !important;
+  color: #3b8df1 !important;
+
+}
+
+.category-estudio{
+  background-color: #fdf0d5 !important;
+  color: #f5c252 !important;
+
+}
+
+
 
 .selected {
   background-color: #0d6efd;
@@ -92,8 +117,8 @@ li {
 }
 
 .contenedor-label{
-  width: 230px;
     word-wrap: break-word;
+    margin-left: 5px;
 }
 
 .tooltip-container {
@@ -127,4 +152,9 @@ li {
 }
 .size-icon{
   font-size: 20px;
+}
+.badge-category{
+  color: #7058ff;
+  background-color: #e3e0ff;
+  margin-left: 90px;
 }

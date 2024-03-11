@@ -116,7 +116,7 @@ function guardarTareas(tareaPorCategoria) {
         icon: "success",
         title: "La tarea es eliminada",
         showConfirmButton: false,
-        timer: 1500
+        timer: 100
       });
     };
 
@@ -190,9 +190,15 @@ function guardarTareas(tareaPorCategoria) {
         tareaPorCategoria[category].forEach(function (task) {
           let li = document.createElement('li');
           li.innerHTML = `
-            <span  >${task.text} <span class="badge text-bg-primary">${category}</span> </span>
-            <button class="text-bg-danger delete-btn tooltip-container" onclick="eliminarTarea('${category}', ${tareaPorCategoria[category].indexOf(task)})"><i class="fas fa-trash"></i><span class="tooltip-text">Eliminar</button>`;
-          listaDeTareas.appendChild(li);
+     
+            <span  >${task.text} <span class="badge badge-category ">${category}</span> </span>
+            <button class="text-bg-danger delete-btn tooltip-container" onclick="eliminarTarea('${category}', ${tareaPorCategoria[category].indexOf(task)})"><i class="fas fa-trash"></i><span class="tooltip-text">Eliminar</button>
+            
+              `;
+          
+          
+            listaDeTareas.appendChild(li);
+          
         });
       });
     }
