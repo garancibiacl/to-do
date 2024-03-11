@@ -121,3 +121,10 @@ li {
   visibility: visible;
   opacity: 1;
 }
+
+.title-container{
+  font-size: 30px;
+}
+.size-icon{
+  font-size: 20px;
+}
