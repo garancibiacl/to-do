@@ -116,7 +116,7 @@ function guardarTareas(tareaPorCategoria) {
         icon: "success",
         title: "La tarea es eliminada",
         showConfirmButton: false,
-        timer: 100
+        timer: 1000
       });
     };
 
