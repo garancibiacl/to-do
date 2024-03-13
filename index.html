@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <meta name="author" content="Gustavo Arancibia">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <title>To-do</title>
     <link rel="stylesheet" href="styles.css" />
     
@@ -22,20 +23,27 @@
     <div class="row p-3">
 
 
-        <div class="col-12">
+        <div class="col-4">
             <div class="title-container p-1 h1 text-start mx-auto ">
-                <i class="size-icon fa fa-list-ul"></i>  Daily <strong>Tasks</strong>  
+                <i class="size-icon fa fa-list-ul"></i>  Daily <strong class="text-uppercase">Tasks</strong>  
             </div>
             <i class="fa-regular fa-rectangle-list"></i>
         </div>
+        <div class="col-8 justify-content-end d-flex px-3">
+        <div class="clock">
+            <div class="time " id="time">00:00:00 </div>
+            <span class="font-fecha" id="date"></span>
+          </div>
 
-    
+        </div>
 
     </div>
 
+    <hr class="bg-danger border-1 border-top border-secondary" />
+
     <div class="row d-flex m-1 pb-3 pt-3">
         <div class="col-6 ">
-            <label class="col-12 justify-content-md-start d-flex pb-2 fw-bold" >Seleccione Categoria</label>
+            <label class="col-12 justify-content-md-start d-flex pb-2 fw-medium" >Seleccione Categoria</label>
       <select class="form-select" id="seleccionarCategoria">
         <option selected>Categoria</option>
         <option value="personal">Personal</option>
@@ -59,7 +67,7 @@
 
     
    
-        
+
 
      
 </div>
@@ -102,13 +110,12 @@
     
     </div>
     </div>
-
+    <div class="row">
+        <div class="col-md-12 tex-center pt-3"><p class="copyright text-body-secondary">Hecho con ❤️ &nbsp;de  © <a class="text-decoration-none text-secondary url-web__copyright" href="https://piensaentuweb.cl/" target="_blank" rel="noopener noreferrer">Gustavo Arancibia</a></p></div>
+    </div>
 </div>
 
-<div class="row">
 
-
-</div>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="main.js"></script>
 </body>

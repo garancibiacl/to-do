@@ -64,8 +64,8 @@ function guardarTareas(tareaPorCategoria) {
           <div class="col-8 text-start contenedor-label">
           <label  for="task${index}" class="${task.completed ? 'task-completed' : ''}">${task.text}</label>
           </div>
-          <button class=" text-bg-primary edit-btn tooltip-container "  onclick="editTask('${category}', ${index})" ><i class="far fa-edit  "></i> <span class="tooltip-text">Editar</span></button>
-          <button class="text-bg-danger delete-btn tooltip-container "   onclick="eliminarTarea('${category}', ${index})"><i class="fas fa-trash" ></i><span class="tooltip-text">Eliminar</span></button>
+          <button class=" text-bg-primary edit-btn tooltip-container "  onclick="editTask('${category}', ${index})" ><i class="far fa-edit  "></i> <span class="shadow tooltip-text">Editar</span></button>
+          <button class="text-bg-danger delete-btn tooltip-container "   onclick="eliminarTarea('${category}', ${index})"><i class="fas fa-trash" ></i><span class="shadow tooltip-text">Eliminar</span></button>
   
      
         `
@@ -192,7 +192,7 @@ function guardarTareas(tareaPorCategoria) {
           li.innerHTML = `
      
             <span  >${task.text} <span class="badge badge-category ">${category}</span> </span>
-            <button class="text-bg-danger delete-btn tooltip-container" onclick="eliminarTarea('${category}', ${tareaPorCategoria[category].indexOf(task)})"><i class="fas fa-trash"></i><span class="tooltip-text">Eliminar</button>
+            <button class="text-bg-danger delete-btn tooltip-container" onclick="eliminarTarea('${category}', ${tareaPorCategoria[category].indexOf(task)})"><i class="fas fa-trash"></i><span class="shadow tooltip-text">Eliminar</button>
             
               `;
           
@@ -211,6 +211,37 @@ function guardarTareas(tareaPorCategoria) {
       }
     });
 
+    function updateTime() {
+      const now = new Date();
+      let hours = now.getHours();
+      let minutes = now.getMinutes();
+      let seconds = now.getSeconds();
+    
+      hours = hours < 10 ? '0' + hours : hours;
+      minutes = minutes < 10 ? '0' + minutes : minutes;
+      seconds = seconds < 10 ? '0' + seconds : seconds;
+    
+      const timeString = `${hours}:${minutes}:${seconds}`;
+      document.getElementById('time').innerText = timeString;
+    }
+    
+    setInterval(updateTime, 1000);
+
+
+    function showDate() {
+      const now = new Date();
+      const days = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+      const months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+    
+      const dayOfWeek = days[now.getDay()];
+      const dayOfMonth = now.getDate();
+      const month = months[now.getMonth()];
+    
+      const dateString = `${dayOfWeek}, ${dayOfMonth} ${month}`;
+      document.getElementById('date').innerText = dateString;
+    }
+    
+    showDate();
 
     renderTodasLasTareas();
   });
