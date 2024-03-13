@@ -112,11 +112,21 @@ function guardarTareas(tareaPorCategoria) {
       renderTareas(category);
    
       Swal.fire({
-        position: "top-center",
-        icon: "success",
-        title: "La tarea es eliminada",
-        showConfirmButton: false,
-        timer: 1000
+        title: "Estas seguro que deseas eliminar `${tareaPorCategoria}'",
+        text: "Los datos de esta tarea desapareceran",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Confirmar"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            title: "Deleted!",
+            text: "Your file has been deleted.",
+            icon: "success"
+          });
+        }
       });
     };
 
