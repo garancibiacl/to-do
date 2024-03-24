@@ -106,28 +106,32 @@ function guardarTareas(tareaPorCategoria) {
     }
 
 
-    window.eliminarTarea = function (category, index) {
-      tareaPorCategoria[category].splice(index, 1);
-      guardarTareas(tareaPorCategoria);
-      renderTareas(category);
-   
-      Swal.fire({
-        title: "Estas seguro que deseas eliminar `${tareaPorCategoria}'",
-        text: "Los datos de esta tarea desapareceran",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Confirmar"
-      }).then((result) => {
-        if (result.isConfirmed) {
-          Swal.fire({
-            title: "Deleted!",
-            text: "Your file has been deleted.",
-            icon: "success"
-          });
-        }
-      });
+    window.eliminarTarea = function (category, index, task) {
+
+      
+        tareaPorCategoria[category].splice(index, 1);
+        guardarTareas(tareaPorCategoria);
+        renderTareas(category);
+           
+        Swal.fire({
+          title: '¿Estás seguro?',
+          text: "Esta acción no se puede deshacer",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Sí, eliminar',
+          cancelButtonText: 'Cancelar'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            Swal.fire({
+              title: "Eliminado",
+              text: `La tarea "${category}" ha sido eliminada`,
+              icon: "success"
+            });
+          }
+        });
+            
     };
 
 
@@ -151,6 +155,7 @@ function guardarTareas(tareaPorCategoria) {
             renderTareas(category);
           }else {
             alert("Por favor, ingrese una tarea válida antes de continuar.");
+       
           }
         },
         allowOutsideClick: () => !Swal.isLoading()
@@ -231,7 +236,7 @@ function guardarTareas(tareaPorCategoria) {
       minutes = minutes < 10 ? '0' + minutes : minutes;
       seconds = seconds < 10 ? '0' + seconds : seconds;
     
-      const timeString = `${hours}:${minutes}:${seconds}`;
+      const timeString = `${hours}:${minutes}`;
       document.getElementById('time').innerText = timeString;
     }
     
