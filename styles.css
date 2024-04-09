@@ -83,7 +83,7 @@ li {
 .category{
   background-color: #eee;
   color: ##616161;
-  padding: 9px 30px;
+  /*padding: 9px 30px;*/
   border-radius: 30px;
   margin-top: 10px;
   cursor: pointer;
